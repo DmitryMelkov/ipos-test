@@ -1,0 +1,477 @@
+@import "_var";
+@import "_mixins";
+
+.intro {
+  &__content {
+    position: relative;
+  }
+  &__square {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    width: 250px;
+    margin: 0 auto;
+  }
+  &__square-fig {
+    grid-column: span 2;
+    width: 125px;
+    height: 125px;
+    background-color: purple;
+  }
+  &__square-1 {
+    animation-name: square1;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  &__square-2 {
+    animation-name: square2;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  &__square-3 {
+    animation-name: square3;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  &__square-4 {
+    animation-name: square4;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  &__circle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 45.8%;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+
+    animation: circle 3s ease-in-out forwards;
+  }
+  &__circle--restart {
+    animation: circle 1s ease-in-out forwards;
+  }
+  &__circle-btn {
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+    color: $colorWhite;
+    border-radius: 50%;
+    background-color: $colorGreen;
+
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+
+    transition-property: transform, opacity, background-color;
+    @include transition;
+    animation: circleRotate 4s ease-in-out;
+  }
+
+  &__selects {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    position: absolute;
+    top: 33%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-500px);
+    opacity: 0;
+    visibility: hidden;
+    transition-property: opacity, transform;
+    @include transition;
+  }
+  &__select {
+    margin-right: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 220px;
+    // transform: translateY(500px);
+  }
+  &__select-header {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 600;
+    color: $colorPurple;
+
+    border: 2px solid $colorPurple;
+    padding: 10px;
+    transition-property: color, background-color;
+    @include transition;
+  }
+
+  &__select-svg {
+    width: 20px;
+    height: 20px;
+    color: $colorPurple;
+    transition-property: transform;
+    @include transition;
+    pointer-events: none;
+  }
+  &__select-svg--active {
+    color: $colorWhite;
+    transform: rotate(180deg);
+  }
+
+  &__select-icon-svg {
+    margin-left: 5px;
+    color: $colorPurple;
+    width: 13px;
+    height: 8px;
+  }
+  &__select-body {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 2px solid $colorPurple;
+    background-color: $colorWhite;
+    border-top: 0;
+    z-index: 1;
+  }
+  &__select-item {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    padding: 8px;
+    cursor: pointer;
+    transition-property: background-color, color;
+    @include transition;
+  }
+  &__input-hidden {
+    display: none;
+  }
+  &__form-btn {
+    margin-bottom: 20px;
+    display: block;
+    padding: 10px;
+    border: 2px solid $colorPurple;
+    background-color: $colorWhite;
+    cursor: pointer;
+    color: $colorPurple;
+
+    opacity: 1;
+
+    transition-property: color, background-color, opacity;
+    @include transition;
+  }
+  &__calendar {
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+  &__calendar-input {
+    padding-left: 10px;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 600;
+    color: $colorPurple;
+    border: 2px solid $colorPurple;
+  }
+  &__finish {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    z-index: 111;
+    transition: opacity 0.5s ease-in-out;
+
+  }
+  &__finish-content {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  &__finish-body {
+    background-color: $colorGrey;
+    border-radius: 15px;
+    // box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.5);
+
+    transition-property: transform, opacity;
+    @include transition;
+    // z-index: 111;
+  }
+  &__finish.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  &__finish-span {
+    margin-bottom: 20px;
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 600;
+  }
+  &__finish-btn {
+    background-color: $colorWhite;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid $colorGreen;
+    opacity: 1;
+    transition-property: color, background-color, opacity, border;
+    @include transition;
+  }
+}
+
+.select-body--visible {
+  display: flex;
+}
+
+.intro__circle-btn.active {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(500px);
+}
+.intro__selects.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes square1 {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-500%, -500%);
+  }
+}
+@keyframes square2 {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(500%, -500%);
+  }
+}
+@keyframes square3 {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-500%, 500%);
+  }
+}
+@keyframes square4 {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(500%, 500%);
+  }
+}
+
+@keyframes circle {
+  0%,
+  50% {
+    opacity: 0;
+    transform: translateY(-1000%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    transform: rotate(0);
+  }
+}
+
+@keyframes circleRotate {
+  0%,
+  80% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+//hover
+@media (min-width: 1024px) {
+  .intro {
+    &__circle-btn:hover {
+      opacity: 0.8;
+    }
+    &__select-item:hover {
+      color: $colorWhite;
+      background-color: $colorPurple;
+    }
+    &__form-btn:hover {
+      color: $colorWhite;
+      background-color: $colorPurple;
+      border: 2px solid $colorPurple;
+      opacity: 0.6;
+    }
+    &__finish-btn:hover {
+      background-color: $colorGreen;
+      color: $colorWhite;
+      opacity: 0.8;
+    }
+    &__select-header:hover {
+      outline: none;
+      color: $colorWhite;
+      background-color: $colorPurple;
+    }
+  }
+}
+
+//active, focus
+.intro {
+  &__circle-btn:active {
+    background-color: $colorRed;
+  }
+  &__circle-btn:focus-visible {
+    background-color: $colorRed;
+    outline: none;
+  }
+
+  &__form-btn:active {
+    opacity: 1;
+    color: $colorWhite;
+    background-color: $colorPurple;
+    border: 2px solid $colorPurple;
+  }
+  &__form-btn:focus-visible {
+    opacity: 1;
+    color: $colorWhite;
+    background-color: $colorPurple;
+    border: 2px solid $colorPurple;
+  }
+  &__finish-btn:active {
+    background-color: $colorRed;
+    border: 2px solid $colorRed;
+    color: $colorWhite;
+  }
+  &__finish-btn:focus-visible {
+    background-color: $colorRed;
+    border: 2px solid $colorRed;
+    color: $colorWhite;
+    outline: none;
+  }
+  &__select-header:focus-visible,
+  &__select-header:active {
+    outline: none;
+    color: $colorWhite;
+    background-color: $colorPurple;
+  }
+  &__select-header:focus-visible &__select-svg,
+  &__select-header:active &__select-svg {
+    color: $colorWhite;
+    transform: rotate(180deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .intro {
+    &__selects {
+      flex-direction: column;
+    }
+    &__select {
+      max-width: none;
+      margin-right: 0;
+    }
+    &__calendar {
+      margin-right: 0;
+    }
+    &__calendar-input {
+      height: 45px;
+    }
+  }
+
+  @keyframes square1 {
+    0% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-100%, -100%);
+    }
+  }
+  @keyframes square2 {
+    0% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(100%, -100%);
+    }
+  }
+  @keyframes square3 {
+    0% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-100%, 100%);
+    }
+  }
+  @keyframes square4 {
+    0% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(100%, 100%);
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .intro {
+    &__circle {
+      left: 35%;
+    }
+    &__finish-span {
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+}
