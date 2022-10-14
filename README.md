@@ -1,2 +1,2 @@
 # ipos-test
-project for test animationand js
+project for test animation and js
