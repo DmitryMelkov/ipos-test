@@ -211,7 +211,6 @@
     left: 0;
     z-index: 111;
     transition: opacity 0.5s ease-in-out;
-
   }
   &__finish-content {
     min-height: 100%;
@@ -273,7 +272,7 @@
   }
   100% {
     opacity: 0;
-    transform: translate(-500%, -500%);
+    transform: translate(-200%, -200%);
   }
 }
 @keyframes square2 {
@@ -283,7 +282,7 @@
   }
   100% {
     opacity: 0;
-    transform: translate(500%, -500%);
+    transform: translate(200%, -200%);
   }
 }
 @keyframes square3 {
@@ -293,7 +292,7 @@
   }
   100% {
     opacity: 0;
-    transform: translate(-500%, 500%);
+    transform: translate(-200%, 200%);
   }
 }
 @keyframes square4 {
@@ -303,7 +302,7 @@
   }
   100% {
     opacity: 0;
-    transform: translate(500%, 500%);
+    transform: translate(200%, 200%);
   }
 }
 
@@ -429,7 +428,7 @@
     }
     100% {
       opacity: 0;
-      transform: translate(-100%, -100%);
+      transform: translate(-50%, -50%);
     }
   }
   @keyframes square2 {
@@ -439,7 +438,7 @@
     }
     100% {
       opacity: 0;
-      transform: translate(100%, -100%);
+      transform: translate(50%, -50%);
     }
   }
   @keyframes square3 {
@@ -449,7 +448,7 @@
     }
     100% {
       opacity: 0;
-      transform: translate(-100%, 100%);
+      transform: translate(-50%, 50%);
     }
   }
   @keyframes square4 {
@@ -459,7 +458,7 @@
     }
     100% {
       opacity: 0;
-      transform: translate(100%, 100%);
+      transform: translate(50%, 50%);
     }
   }
 }
